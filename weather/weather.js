@@ -8,7 +8,7 @@ var basemap = L.tileLayer(basemapUrl, {
 }).addTo(map);
 
 
-// Source: Iowa State University Mesonet [cite: 5]
+// Source: Iowa State University Mesonet
 var radarUrl = 'https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi';
 var radarDisplayOptions = {
     layers: 'nexrad-n0r-900913',
