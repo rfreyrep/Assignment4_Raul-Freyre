@@ -1,4 +1,3 @@
-// Function to determine marker color based on magnitude (Requisito 3(3) and 3(4))
 function getColor(magnitude) {
     // Defines the severity levels based on the magnitude of the earthquakes
     return magnitude > 5 ? '#bd0026' : // Red for high magnitude
@@ -9,12 +8,12 @@ function getColor(magnitude) {
                          '#ffffb2'; // Light yellow for minor
 }
 
-// Function to determine marker size based on magnitude (Requisito 3(3))
+// Function to determine marker size based on magnitude
 function getRadius(magnitude) {
     return magnitude > 0 ? magnitude * 5 : 1;
 }
 
-// Envuelve la lógica del mapa dentro de la función de carga del documento (Solución al error de sintaxis)
+
 $(document).ready(function() {
     // 1. Initialize the map object and center it on the USA
     var map = L.map('map').setView([38, -95], 4); 
@@ -32,7 +31,7 @@ $(document).ready(function() {
     // Fetch GeoJSON data from USGS
     $.getJSON(earthquakeUrl, function(data) {
         L.geoJSON(data, {
-            // Requisito 3(1): Create a marker on the map for each earthquake
+            // Create a marker on the map for each earthquake
             pointToLayer: function(feature, latlng) {
                 return L.circleMarker(latlng, {
                     radius: getRadius(feature.properties.mag),
@@ -43,7 +42,7 @@ $(document).ready(function() {
                     fillOpacity: 0.8
                 });
             },
-            // Requisito 3(2): Add a popup displaying magnitude, location, and time
+            // Add a popup displaying magnitude, location, and time
             onEachFeature: function(feature, layer) {
                 var magnitude = feature.properties.mag;
                 var place = feature.properties.place;
@@ -57,7 +56,7 @@ $(document).ready(function() {
             }
         }).addTo(map);
 
-        // Requisito 3(4): Create a legend on the map
+        // Create a legend on the map
         var legend = L.control({ position: 'bottomright' });
 
         legend.onAdd = function (map) {

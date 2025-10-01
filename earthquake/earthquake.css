@@ -1,4 +1,4 @@
-/* Ensure the map occupies the full viewport */
+/* Ensure the map occupies the full view */
 html, body {
     padding: 0;
     margin: 0;
@@ -8,11 +8,11 @@ html, body {
 
 /* Target the specific div where the map will be rendered */
 #map {
-    height: 100vh; /* 100% of the viewport height */
-    width: 100vw;  /* 100% of the viewport width */
+    height: 100vh; 
+    width: 100vw;  
 }
 
-/* Styling for the legend control (Requisito 3(4)) */
+/* Styling for the legend control */
 .info.legend {
     padding: 6px 8px;
     background: white;
